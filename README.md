@@ -1,4 +1,4 @@
-# Luccas' Dotfiles 
+# ~/.dotfiles
 This is a repository with my linux's dotfiles. These are config files to set up a system the way I like it.
 
 ---
