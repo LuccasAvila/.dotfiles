@@ -50,4 +50,7 @@ return packer.startup(function(use)
 
   -- Status line
   use 'nvim-lualine/lualine.nvim'
+
+  -- Testing utils
+  use 'vim-test/vim-test'
 end)
