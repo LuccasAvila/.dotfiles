@@ -103,7 +103,7 @@ bindsym Mod4+w layout tabbed
 bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+bindsym Mod4+Shift+space floating toggle; [tiling] border none; [floating] border pixel 2
 
 # change focus between tiling / floating windows
 bindsym Mod4+space focus mode_toggle
@@ -204,9 +204,21 @@ bindsym Mod4+r mode "resize"
 #######################################################################
 exec i3-config-wizard
 
-for_window [class=".*"] border pixel 0
+# class                 border  backgr. text    indicator child_border
+client.focused          #d65d0e #282828 #ebdbd2 #458588   #d65d0e
+client.focused_inactive #a89984 #282828 #ebdbd2 #7c6f64   #5f676a
+client.unfocused        #928374 #1d2021 #bdae93 #282828   #282828
+client.urgent           #504945 #282828 #ebdbd2 #cc241d   #cc241d
+client.placeholder      #1d2021 #282828 #ebdbd2 #32302f   #32302f
+
+client.background       #3c3836
+
+# Startup applications
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id ~/.fehbg &
+exec --no-startup-id picom -b
 
-for_window [title="^floatme$"] floating enable
+# Floating settings
 
-
+for_window [class=".*"] border pixel 0
+for_window [title="^floatme"] floating enable; [tiling] border none; [floating] border pixel 2
