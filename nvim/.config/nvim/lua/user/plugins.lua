@@ -11,7 +11,7 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim'
 
   -- Colorscheme
-  use 'morhetz/gruvbox'         -- Gruvbox color scheme
+  use 'morhetz/gruvbox'  -- Gruvbox color scheme
 
   -- cmp plugins
   use 'hrsh7th/nvim-cmp'
@@ -27,12 +27,11 @@ return packer.startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'jose-elias-alvarez/null-ls.nvim'
+  use { "folke/trouble.nvim", cmd = "TroubleToggle" }
 
   -- Treesitter
-   use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
-   }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
@@ -54,4 +53,8 @@ return packer.startup(function(use)
 
   -- Testing utils
   use 'vim-test/vim-test'
+
+  -- Misc
+  use 'tpope/vim-surround'
+  use 'numToStr/Comment.nvim'
 end)

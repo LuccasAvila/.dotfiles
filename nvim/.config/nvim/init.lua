@@ -14,4 +14,4 @@ require 'user.gitsigns'
 require 'user.bufferline'
 require 'user.lualine'
 require 'user.vim-test'
-
+require 'user.comment'
