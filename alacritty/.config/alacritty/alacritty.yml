@@ -2,8 +2,8 @@ window:
 
   # Window padding
   padding:
-    x: 16
-    y: 16
+    x: 8
+    y: 8
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
