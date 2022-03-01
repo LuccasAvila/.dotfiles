@@ -47,6 +47,7 @@ return packer.startup(function(use)
 
   -- Git integrations
   use 'lewis6991/gitsigns.nvim'
+  use 'tpope/vim-fugitive'
 
   -- Status line
   use 'nvim-lualine/lualine.nvim'
