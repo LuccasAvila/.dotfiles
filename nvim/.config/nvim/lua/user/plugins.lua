@@ -43,7 +43,7 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-tree.lua'
 
   -- BufferLine
-  use 'akinsho/bufferline.nvim'
+  -- use 'akinsho/bufferline.nvim'
 
   -- Git integrations
   use 'lewis6991/gitsigns.nvim'
@@ -58,4 +58,7 @@ return packer.startup(function(use)
   -- Misc
   use 'tpope/vim-surround'
   use 'numToStr/Comment.nvim'
+  use 'norcalli/nvim-colorizer.lua' -- color highlighter
+  use 'folke/todo-comments.nvim'
 end)
+
