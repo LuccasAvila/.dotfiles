@@ -9,13 +9,16 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local keymaps = require('user.lsp.keymaps')
 
 local servers = {
-  'html',  
-  'cssls',  
-  'solargraph',  
-  'tsserver',  
-  'volar',  
-  'dartls',  
-  'tailwindcss',  
+  'html',
+  'cssls',
+  'solargraph',
+  'tsserver',
+  'volar',
+  'dartls',
+  'tailwindcss',
+  'gopls',
+  'rust_analyzer',
+  'intelephense',
 }
 
 local signs = {
@@ -52,4 +55,10 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.elixirls.setup {
+    cmd = { "/home/luccas/.development/elixir-ls/language_server.sh" };
+    on_attach = keymaps,
+    capabilities = capabilities,
+}
 

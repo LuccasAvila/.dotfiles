@@ -14,3 +14,6 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+-- Netrw options
+vim.g.netrw_banner = 0

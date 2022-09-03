@@ -1,0 +1,6 @@
+set selection-clipboard clipboard
+set recolor
+set recolor-keephue
+
+include catppuccin-mocha
+

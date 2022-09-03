@@ -9,6 +9,7 @@ if not luasnip_status_ok then
 end
 
 require('luasnip/loaders/from_vscode').lazy_load()
+luasnip.filetype_extend("ruby", {"rails"})
 
 local check_backspace = function()
   local col = vim.fn.col '.' - 1
@@ -48,7 +49,6 @@ cmp.setup {
   formatting = {
     fields = { 'kind', 'abbr', 'menu' },
     format = function(entry, vim_item)
-      -- TODO: Add icons as kind return
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
@@ -60,7 +60,7 @@ cmp.setup {
     end,
   },
 
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
+  window = {
+    documentation = cmp.config.window.bordered(),
+  }
 }

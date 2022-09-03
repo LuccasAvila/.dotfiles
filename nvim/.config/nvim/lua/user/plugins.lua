@@ -12,6 +12,8 @@ return packer.startup(function(use)
 
   -- Colorscheme
   use 'morhetz/gruvbox'  -- Gruvbox color scheme
+  use {'catppuccin/nvim', as = 'catppuccin'}
+  use 'folke/tokyonight.nvim'
 
   -- cmp plugins
   use 'hrsh7th/nvim-cmp'
@@ -26,7 +28,9 @@ return packer.startup(function(use)
 
   -- LSP
   use 'neovim/nvim-lspconfig'
+  use 'ray-x/lsp_signature.nvim'
   use 'jose-elias-alvarez/null-ls.nvim'
+  use 'rafamadriz/friendly-snippets'
   use { "folke/trouble.nvim", cmd = "TroubleToggle" }
 
   -- Treesitter
@@ -36,18 +40,9 @@ return packer.startup(function(use)
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
 
-  -- coloured icons
-  use 'kyazdani42/nvim-web-devicons'
-
-  -- Nerd Tree 
-  use 'kyazdani42/nvim-tree.lua'
-
-  -- BufferLine
-  -- use 'akinsho/bufferline.nvim'
-
   -- Git integrations
   use 'lewis6991/gitsigns.nvim'
-  use 'tpope/vim-fugitive'
+  use 'TimUntersberger/neogit'
 
   -- Status line
   use 'nvim-lualine/lualine.nvim'
@@ -60,5 +55,14 @@ return packer.startup(function(use)
   use 'numToStr/Comment.nvim'
   use 'norcalli/nvim-colorizer.lua' -- color highlighter
   use 'folke/todo-comments.nvim'
+
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+
+  -- Database
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
 end)
 
