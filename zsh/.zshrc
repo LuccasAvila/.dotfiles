@@ -15,6 +15,9 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export PATH=$PATH:$HOME/.development/flutter/bin
 
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -80,8 +83,10 @@ ZSH_THEME="robbyrussell"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails ruby asdf)
+plugins=(git rails ruby asdf zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,5 +116,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
