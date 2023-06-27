@@ -4,16 +4,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Path for flutter web development
-export CHROME_EXECUTABLE=/usr/bin/vivaldi-stable
-
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-export PATH=$PATH:$HOME/.development/flutter/bin
 
 export EDITOR="nvim"
 export TERMINAL="alacritty"

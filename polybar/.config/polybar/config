@@ -18,14 +18,14 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #282828
-background-alt = #404945
+background = #1e1e2e
+background-alt = #fab387
 ;foreground = ${xrdb:color7:#222}
-foreground = #ebdbb2
+foreground = #cdd6f4
 foreground-alt = #fbf1c7
-primary = #d65d0e
-secondary = #689d6a
-alert = #fb4934
+primary = #cba6f7
+secondary = #b4befe
+alert = #f2cdcd
 
 [bar/mybar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -35,7 +35,7 @@ height = 27
 ;offset-y = 1%
 ;radius = 6.0
 fixed-center = false
-bottom = true
+bottom = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -52,7 +52,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = "JetBrains Mono:style=Regular:size=9;1"
+font-0 = "JetBrainsMono Nerd Font Mono:style=Bold:size=8;3"
 font-1 = "Material Icons Round:size=12;2"
 font-2 = "Material Icons Round:size=12;2"
 ;font-2 = siji:pixelsize=10;1
@@ -100,16 +100,20 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
+label-focused-foreground = ${colors.background}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
+label-unfocused-background = #313244
+label-unfocused-foreground = #6c7086
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${self.label-focused-foreground}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 

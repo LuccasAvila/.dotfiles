@@ -1,6 +1,6 @@
 configuration {
      modi: "drun";
-     font: "JetBrainsMono NF 10";
+     font: "JetBrainsMono Nerd Font Mono 10";
      show-icons: true;
      icon-theme: "Papirus-dark";
      display-drun: "";
@@ -27,7 +27,7 @@ configuration {
      background-color: @button;
      enabled: true;
      padding: 0.5% 32px 0% -0.5%;
-     font: "JetBrainsMono NF 10";
+     font: "JetBrainsMono Nerd Font Mono 10";
 }
 
  entry {
