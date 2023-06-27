@@ -1,11 +1,9 @@
-local lsp = require('lspconfig')
-local mason = require('mason')
-local mason_lsp = require('mason')
+local M = {}
 
-local on_attach = function(_, bufnr)
+function M.on_attach(_client, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
-      desc = '[LSP] ' .. desc
+      desc = "[LSP] " .. desc
     end
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
@@ -32,35 +30,4 @@ local on_attach = function(_, bufnr)
   nmap('<leader>q', vim.diagnostic.setloclist, 'Quickfix')
 end
 
-local servers = { 'html', 'cssls', 'solargraph', 'tsserver', 'volar', 'tailwindcss', 'gopls', 'eslint', 'sumneko_lua', 'rust_analyzer', 'dartls' }
-
-mason.setup({ ui = { border = 'rounded' } })
-
-mason_lsp.setup({
-  ensure_installed = servers
-})
-
-vim.diagnostic.config({
-  virtual_text = true,
-})
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-for _, server in ipairs(servers) do
-  lsp[server].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
-lsp.sumneko_lua.setup {
-  settings = {
-    Lua = {
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-    },
-  },
-}
+return M
