@@ -1,5 +1,5 @@
 local servers = { 'html', 'cssls', 'tsserver', 'volar', 'tailwindcss', 'gopls', 'eslint', 'lua_ls',
-  'rust_analyzer', 'intelephense', 'ocamllsp' }
+  'rust_analyzer', 'intelephense', 'astro' }
 
 return {
   {
@@ -7,8 +7,8 @@ return {
     event = "BufReadPre",
     dependencies = {
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+      { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
       "mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
     opts = {
@@ -20,6 +20,8 @@ return {
       },
     },
     config = function()
+      require("neoconf").setup({})
+
       local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
       local on_attach = require("plugins.lsp.keymaps").on_attach
 
@@ -30,8 +32,6 @@ return {
       require('lspconfig').solargraph.setup { cmd = { os.getenv("HOME") .. '/.asdf/shims/solargraph', 'stdio' }, on_attach = on_attach, capabilities = capabilities }
 
       require('lspconfig').elixirls.setup { cmd = { os.getenv("HOME") .. '/.development/elixir-ls/language_server.sh' }, on_attach = on_attach, capabilities = capabilities }
-
-      require("mason-lspconfig").setup({ ensure_installed = servers, ui = { border = 'rounded' } })
 
       -- Override borders to rounded
       local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -71,4 +71,11 @@ return {
       require("mason").setup(opts)
     end,
   },
+
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup({ ensure_installed = servers, ui = { border = 'rounded' } })
+    end
+  }
 }

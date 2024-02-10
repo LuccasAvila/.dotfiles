@@ -18,9 +18,15 @@ return {
         { '<leader>fh', function() builtin.help_tags({}) end },
       }
     end,
-    config = function(_, opts)
+    config = function()
       local telescope = require('telescope')
-      telescope.setup(opts)
+      telescope.setup({
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown({})
+          }
+        }
+      })
 
       telescope.load_extension('ui-select')
     end
