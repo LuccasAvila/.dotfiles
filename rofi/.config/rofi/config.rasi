@@ -1,6 +1,6 @@
 configuration {
      modi: "drun";
-     font: "JetBrainsMono Nerd Font Mono 10";
+     font: "MonaspiceNe Nerd Font 10";
      show-icons: true;
      icon-theme: "Papirus-dark";
      display-drun: "";
@@ -9,10 +9,10 @@ configuration {
 }
 
  @theme "/dev/null" * {
-     bg: #282828;
+     bg: #1e1e2e;
      fg: #ebdbb2;
-     accent: #d65d0e;
-     button: #3c3836;
+     accent: #cba6f7;
+     button: #181825;
      background-color: @bg;
      text-color: @fg;
 }
@@ -27,7 +27,7 @@ configuration {
      background-color: @button;
      enabled: true;
      padding: 0.5% 32px 0% -0.5%;
-     font: "JetBrainsMono Nerd Font Mono 10";
+     font: "MonaspiceNe Nerd Font 10";
 }
 
  entry {
