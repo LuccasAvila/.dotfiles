@@ -12,12 +12,14 @@ return {
     build = ":TSUpdate",
     event = "BufReadPost",
     opts = {
-      auto_install = true;
+      auto_install = true,
       ensure_installed = "all",
       indent = { enable = true },
       highlight = { enable = true },
       context_commentstring = { enable = true, enable_autocmd = false },
     },
-    config = true,
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end
   },
 }

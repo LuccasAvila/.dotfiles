@@ -18,7 +18,7 @@ function M.on_attach(_client, bufnr)
   nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplemetation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
 
-  nmap('<leader>f', vim.lsp.buf.format, '[F]ormat file')
+  nmap('<leader>f', require("conform").format, '[F]ormat file')
 
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')

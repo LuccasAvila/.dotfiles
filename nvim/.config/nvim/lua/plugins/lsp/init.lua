@@ -1,17 +1,18 @@
-local servers = { 'html', 'cssls', 'tsserver', 'volar', 'tailwindcss', 'gopls', 'eslint', 'lua_ls',
-  'rust_analyzer', 'intelephense', 'astro' }
+local servers = { 'cssls', 'tailwindcss', 'gopls', 'eslint', 'lua_ls',
+  'rust_analyzer', 'intelephense', 'astro', 'ruby_ls', 'volar' }
 
 return {
   {
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
     dependencies = {
-      { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
+      { "folke/neodev.nvim",  opts = { experimental = { pathStrict = true } } },
+      { "folke/neoconf.nvim", cmd = "Neoconf",                                config = false, dependencies = { "nvim-lspconfig" } },
       "mason.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
     opts = {
+      inlay_hints = { enabled = true },
       diagnosticts = {
         underline = true,
         update_in_insert = false,
@@ -29,34 +30,43 @@ return {
         require('lspconfig')[server].setup { on_attach = on_attach, capabilities = capabilities }
       end
 
-      require('lspconfig').solargraph.setup { cmd = { os.getenv("HOME") .. '/.asdf/shims/solargraph', 'stdio' }, on_attach = on_attach, capabilities = capabilities }
+      -- require('lspconfig').html.setup { filetypes = { "html", "heex", "erb" }, on_attach = on_attach, capabilities = capabilities }
+      require('lspconfig').solargraph.setup { cmd = { os.getenv("HOME") .. '/.local/share/mise/shims/solargraph', 'stdio' }, on_attach = on_attach, capabilities = capabilities }
 
       require('lspconfig').elixirls.setup { cmd = { os.getenv("HOME") .. '/.development/elixir-ls/language_server.sh' }, on_attach = on_attach, capabilities = capabilities }
 
-      -- Override borders to rounded
-      local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-      function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-        opts = opts or {}
-        opts.border = 'rounded'
-        return orig_util_open_floating_preview(contents, syntax, opts, ...)
-      end
+      require('lspconfig').tsserver.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+              languages = { "javascript", "typescript", "vue" },
+            },
+          },
+        },
+        filetypes = {
+          "javascript",
+          "typescript",
+          "vue",
+        },
+      }
+
+      vim.diagnostic.config({ float = { border = "rounded" } })
     end,
   },
 
   -- formatters
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "BufReadPre",
-    dependencies = { "mason.nvim" },
-    opts = function()
-      local nls = require("null-ls")
-      return {
-        sources = {
-          nls.builtins.formatting.stylua,
-          nls.builtins.diagnostics.flake8,
-        }
-      }
-    end,
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        vue = { 'prettier' },
+        typescript = { 'prettier' },
+      },
+    },
   },
 
   -- tools for lsp

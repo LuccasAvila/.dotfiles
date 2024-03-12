@@ -4,13 +4,12 @@ return {
     cmd = "Copilot",
     build = ":Copilot auth",
     event = "InsertEnter",
-    config = function ()
+    config = function()
       require('copilot').setup({
         panel = { enabled = true, auto_refresh = true },
         suggestion = { enabled = true, auto_trigger = true, accept = false },
         filetypes = {
-          markdown = true,
-          help = true,
+          ["*"] = true
         },
       })
 

@@ -25,6 +25,4 @@ return {
   },
 
   { 'posva/vim-vue' },
-  { 'elkowar/yuck.vim' },
-  { 'elixir-editors/vim-elixir' }
 }
