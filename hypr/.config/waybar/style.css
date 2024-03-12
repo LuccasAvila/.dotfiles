@@ -1,0 +1,136 @@
+* {
+    font-family: FontAwesome, MonaspiceNe Nerd Font;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+window#waybar {
+    background-color: rgba(20, 20, 20, 0.4);
+    border-top: 1px solid rgb(80, 80, 80);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    box-shadow: inset 0 -1px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -1px #ffffff;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ffffff;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#clock,
+#cpu,
+#memory,
+#wireplumber,
+#tray {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#window,
+#workspaces,
+#widget {
+    margin: 0;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+  border: none;
+  background: transparent;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(80, 80, 80);
+    border-right: 0px transparent;
+    border-radius: 6px 0 0 6px;
+    margin-right: 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#memory {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(80, 80, 80);
+    border-left: 0px transparent;
+    border-radius: 0 6px 6px 0;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#wireplumber {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(80, 80, 80);
+    border-radius: 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#wireplumber.muted {
+    background-color: #f53c3c;
+}
+
+#tray {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgb(80, 80, 80);
+    border-radius: 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}

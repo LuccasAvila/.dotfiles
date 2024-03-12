@@ -1,0 +1,47 @@
+{
+    "layer": "top",
+    "output": ["DP-1"],
+    "position": "bottom",
+    "height": 32,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "wireplumber", "tray"],
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate",
+      "format-icons": {
+        "1": "一",
+        "2": "二",
+        "3": "三",
+        "4": "四",
+        "5": "五",
+        "6": "六",
+        "7": "七",
+        "8": "八",
+        "9": "九",
+        "10": "十",
+      }
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 20
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d %H:%M:%S}",
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "wireplumber": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon}",
+        "format-muted": " MUTED",
+        "format-icons": ["","","", "", ""],
+        "on-click": "pavucontrol"
+    },
+}
