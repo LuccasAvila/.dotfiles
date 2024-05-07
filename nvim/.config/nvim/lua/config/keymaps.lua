@@ -1,7 +1,7 @@
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Open netrw
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 
 -- Centralize screen on navigation
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

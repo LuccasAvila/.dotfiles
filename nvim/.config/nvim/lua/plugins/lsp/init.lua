@@ -1,5 +1,5 @@
 local servers = { 'cssls', 'tailwindcss', 'gopls', 'eslint', 'lua_ls',
-  'rust_analyzer', 'intelephense', 'astro', 'ruby_ls', 'volar' }
+  'rust_analyzer', 'intelephense', 'astro', 'ruby_lsp', 'volar' }
 
 return {
   {
@@ -33,7 +33,19 @@ return {
       -- require('lspconfig').html.setup { filetypes = { "html", "heex", "erb" }, on_attach = on_attach, capabilities = capabilities }
       require('lspconfig').solargraph.setup { cmd = { os.getenv("HOME") .. '/.local/share/mise/shims/solargraph', 'stdio' }, on_attach = on_attach, capabilities = capabilities }
 
-      require('lspconfig').elixirls.setup { cmd = { os.getenv("HOME") .. '/.development/elixir-ls/language_server.sh' }, on_attach = on_attach, capabilities = capabilities }
+      local elixir_path = require('mason-registry').get_package('elixir-ls'):get_install_path()
+      local elixir_ls = elixir_path .. '/language_server.sh'
+      require('lspconfig').elixirls.setup { cmd = { elixir_ls }, on_attach = on_attach, capabilities = capabilities }
+
+      require('lspconfig').tailwindcss.setup {
+        init_options = {
+          userLanguages = {
+            elixir = 'html-eex',
+            eelixir = 'html-eex',
+            heex = 'html-eex',
+          },
+        },
+      }
 
       require('lspconfig').tsserver.setup {
         on_attach = on_attach,
@@ -42,7 +54,7 @@ return {
           plugins = {
             {
               name = "@vue/typescript-plugin",
-              location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+              location = "/home/luccas/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin",
               languages = { "javascript", "typescript", "vue" },
             },
           },

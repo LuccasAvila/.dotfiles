@@ -6,7 +6,6 @@ return {
   },
 
   -- Lualine
-  { 'AndreM222/copilot-lualine' },
   {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
@@ -30,7 +29,6 @@ return {
           { "diagnostics", separator = { left = "", right = "" } },
           { "filename", path = 1, },
         },
-        lualine_x = { "filesize", "copilot" },
         lualine_y = { { "filetype", icons_enabled = false } },
         lualine_z = { { "location" } },
       },
