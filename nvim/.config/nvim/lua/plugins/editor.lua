@@ -29,8 +29,15 @@ return {
 
   {
     'stevearc/oil.nvim',
-    opts = {},
-    -- Optional dependencies
+    opts = {
+      columns = { "icon" },
+      view_options = {
+        show_hidden = true
+      },
+    },
+    config = function(_, opts)
+      require("oil").setup(opts)
+    end,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-  }
+  },
 }

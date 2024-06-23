@@ -1,5 +1,5 @@
-local servers = { 'cssls', 'tailwindcss', 'gopls', 'eslint', 'lua_ls',
-  'rust_analyzer', 'intelephense', 'astro', 'ruby_lsp', 'volar' }
+local servers = { 'cssls', 'tailwindcss', 'eslint', 'lua_ls',
+  'rust_analyzer', 'intelephense', 'astro', 'ruby_lsp', 'volar', 'gopls' }
 
 return {
   {
@@ -8,6 +8,7 @@ return {
     dependencies = {
       { "folke/neodev.nvim",  opts = { experimental = { pathStrict = true } } },
       { "folke/neoconf.nvim", cmd = "Neoconf",                                config = false, dependencies = { "nvim-lspconfig" } },
+      { "j-hui/fidget.nvim",  opts = {} },
       "mason.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
@@ -37,6 +38,31 @@ return {
       local elixir_ls = elixir_path .. '/language_server.sh'
       require('lspconfig').elixirls.setup { cmd = { elixir_ls }, on_attach = on_attach, capabilities = capabilities }
 
+      -- local lexical_path = require('mason-registry').get_package('lexical'):get_install_path()
+      -- local lexical = lexical_path .. '/libexec/lexical/bin/start_lexical.sh'
+
+      -- local lexical_config = {
+        -- filetypes = { "elixir", "eelixir", "heex" },
+        -- cmd = { lexical },
+        -- settings = {},
+      -- }
+
+      -- if not configs.lexical then
+        -- configs.lexical = {
+          -- default_config = {
+            -- filetypes = lexical_config.filetypes,
+            -- cmd = lexical_config.cmd,
+            -- root_dir = function(fname)
+              -- return require('lspconfig').util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
+            -- end,
+            -- -- optional settings
+            -- settings = lexical_config.settings,
+          -- },
+        -- }
+      -- end
+
+      -- require('lspconfig').lexical.setup({})
+
       require('lspconfig').tailwindcss.setup {
         init_options = {
           userLanguages = {
@@ -54,7 +80,7 @@ return {
           plugins = {
             {
               name = "@vue/typescript-plugin",
-              location = "/home/luccas/.local/share/pnpm/global/5/node_modules/@vue/typescript-plugin",
+              location = "/home/luccas/.local/share/mise/installs/node/latest/lib/node_modules/@vue/typescript-plugin",
               languages = { "javascript", "typescript", "vue" },
             },
           },
