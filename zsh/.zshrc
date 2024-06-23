@@ -81,7 +81,7 @@ ZSH_THEME="robbyrussell"
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails ruby asdf zsh-syntax-highlighting)
+plugins=(git rails ruby zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,3 +113,6 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+eval "$(~/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"

@@ -1,4 +1,4 @@
-local servers = { 'cssls', 'tailwindcss', 'gopls', 'eslint', 'lua_ls',
+local servers = { 'cssls', 'tailwindcss', 'eslint', 'lua_ls',
   'rust_analyzer', 'intelephense', 'astro', 'ruby_lsp', 'volar' }
 
 return {
