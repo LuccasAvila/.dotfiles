@@ -42,7 +42,3 @@ family = "MonaspiceNe Nerd Font"
 [window]
 dynamic_padding = true
 opacity = 1.0
-
-[window.padding]
-x = 8
-y = 8
