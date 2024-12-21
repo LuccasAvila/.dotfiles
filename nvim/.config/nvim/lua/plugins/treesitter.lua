@@ -4,7 +4,12 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     event = "BufReadPre",
-    config = true,
+    opts = {
+      max_lines = 1,
+    },
+    config = function(_, opts)
+      require 'treesitter-context'.setup(opts)
+    end,
   },
 
   {

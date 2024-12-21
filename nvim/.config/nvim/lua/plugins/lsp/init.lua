@@ -31,7 +31,7 @@ return {
       end
 
       -- require('lspconfig').html.setup { filetypes = { "html", "heex", "erb" }, on_attach = on_attach, capabilities = capabilities }
-      require('lspconfig').solargraph.setup { cmd = { os.getenv("HOME") .. '/.local/share/mise/shims/solargraph', 'stdio' }, on_attach = on_attach, capabilities = capabilities }
+      -- require('lspconfig').solargraph.setup { cmd = { os.getenv("HOME") .. '/.local/share/mise/shims/solargraph', 'stdio' }, on_attach = on_attach, capabilities = capabilities }
 
       local elixir_path = require('mason-registry').get_package('elixir-ls'):get_install_path()
       local elixir_ls = elixir_path .. '/language_server.sh'
@@ -47,7 +47,7 @@ return {
         },
       }
 
-      require('lspconfig').tsserver.setup {
+      require('lspconfig').ts_ls.setup {
         on_attach = on_attach,
         capabilities = capabilities,
         init_options = {

@@ -207,19 +207,9 @@ bindsym Mod4+r mode "resize"
 #######################################################################
 exec i3-config-wizard
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #d65d0e #282828 #ebdbd2 #458588   #d65d0e
-client.focused_inactive #a89984 #282828 #ebdbd2 #7c6f64   #5f676a
-client.unfocused        #928374 #1d2021 #bdae93 #282828   #282828
-client.urgent           #504945 #282828 #ebdbd2 #cc241d   #cc241d
-client.placeholder      #1d2021 #282828 #ebdbd2 #32302f   #32302f
-
-client.background       #3c3836
-
-# Startup applications
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id ~/.fehbg &
-exec --no-startup-id picom -b
+bar {
+  status_command i3status
+}
 
 # Floating settings
 
