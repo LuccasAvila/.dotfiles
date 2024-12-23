@@ -1,6 +1,6 @@
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- Open netrw
+-- Open file explorer
 vim.keymap.set('n', '<leader>e', ':Oil<CR>')
 
 -- Centralize screen on navigation
