@@ -4,8 +4,10 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
-      "sindrets/diffview.nvim",
-      "ibhagwan/fzf-lua",
+    },
+    opts = {
+      disable_hint = true,
+      kind = "split",
     },
     config = true,
     keys = {
@@ -24,12 +26,5 @@ return {
           { buffer = buffer, desc = 'Blame Line' })
       end,
     }
-  },
-
-  {
-    'sindrets/diffview.nvim',
-    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
-    config = true,
-    keys = { { '<leader>gd', "<cmd>DiffviewOpen<cr>", desc = "DiffView" } },
   },
 }
